@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden; /* Oculta a barra de rolagem horizontal */
+  font-family: 'Nunito', sans-serif;
 }
 
 .container {
