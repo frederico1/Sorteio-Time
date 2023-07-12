@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorteio de Times de Futebol</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <h1>Sorteio de Times de Futebol</h1>
+    <div id="input-container">
+      <input
+        type="text"
+        id="player-input"
+        placeholder="Digite o nome do jogador"
+      />
+      <button onclick="adicionarJogador()">Adicionar</button>
+    </div>
+    <h2>Jogadores adicionados:</h2>
+    <ul id="jogadores-list"></ul>
+    <button onclick="sortearTimes()">Sortear Times</button>
+    <button onclick="limparTimes()">Limpar Times</button>
+    <div id="times"></div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="fecharModal()">&times;</span>
+        <p>15 é o número máximo de jogadores permitidos.</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
