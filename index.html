@@ -16,20 +16,20 @@
         id="input-container"
       >
         <input
-          class="p-2 rounded-md border-2"
+          class="p-2 rounded-md ring-2 ring-teal-700 ring-inset"
           type="text"
           id="player-input"
           placeholder="Digite o nome do jogador"
         />
         <button
-          class="p-2 w-32 rounded-md border-2"
+          class="p-2 w-32 rounded-md border-2 bg-teal-950 text-white"
           onclick="adicionarJogador()"
         >
           Adicionar
         </button>
       </div>
       <div class="flex flex-col items-center justify-center gap-4">
-        <div class="pt-4">
+        <div class="pt-10">
           <h2>Jogadores adicionados:</h2>
         </div>
         <div class="">
@@ -37,23 +37,26 @@
         </div>
       </div>
       <div class="p-2 flex pt-4 gap-4">
-        <button class="p-1 rounded-md border-2" onclick="sortearTimes()">
+        <button
+          class="p-1 rounded-md border-2 bg-[#045e17] text-white"
+          onclick="sortearTimes()"
+        >
           Sortear times
         </button>
         <button
-          class="p-1 rounded-md border-2"
+          class="p-1 rounded-md border-2 bg-[#a51b0b] text-white"
           onclick="limparJogadoresETimes()"
         >
           Remover todos os jogadores
         </button>
         <button
-          class="p-1 rounded-md border-2"
+          class="p-1 rounded-md border-2 bg-gray-700 text-white"
           onclick="limparJogadoresETimes()"
         >
           Limpar times
         </button>
       </div>
-      <div class="flex gap-10" id="times"></div>
+      <div class="pt-7 grid grid-cols-3 gap-20" id="times"></div>
 
       <div id="modal" class="modal">
         <div class="modal-content">
@@ -67,5 +70,14 @@
 
     <!-- TAILWIND -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ELEMENT -->
+    <!-- import CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"
+    />
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
   </body>
 </html>
