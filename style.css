@@ -1,3 +1,12 @@
+body {
+  overflow-x: hidden; /* Oculta a barra de rolagem horizontal */
+}
+
+.container {
+  max-width: 100%; /* Define a largura máxima do container */
+  overflow: hidden; /* Esconde o conteúdo que extrapolar a largura máxima */
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -32,4 +41,14 @@
 
 .close:hover {
   color: red;
+}
+
+.remover-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  vertical-align: middle;
 }

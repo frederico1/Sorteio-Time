@@ -7,28 +7,65 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <h1>Sorteio de Times de Futebol</h1>
-    <div id="input-container">
-      <input
-        type="text"
-        id="player-input"
-        placeholder="Digite o nome do jogador"
-      />
-      <button onclick="adicionarJogador()">Adicionar</button>
-    </div>
-    <h2>Jogadores adicionados:</h2>
-    <ul id="jogadores-list"></ul>
-    <button onclick="sortearTimes()">Sortear Times</button>
-    <button onclick="limparTimes()">Limpar Times</button>
-    <div id="times"></div>
+    <div class="justify-center items-center flex flex-col container">
+      <div class="pt-7">
+        <h1 class="text-2xl font-bold">Sorteio de Times de Futebol</h1>
+      </div>
+      <div
+        class="justify-center items-center flex gap-2 w-full pt-4"
+        id="input-container"
+      >
+        <input
+          class="p-2 rounded-md border-2"
+          type="text"
+          id="player-input"
+          placeholder="Digite o nome do jogador"
+        />
+        <button
+          class="p-2 w-32 rounded-md border-2"
+          onclick="adicionarJogador()"
+        >
+          Adicionar
+        </button>
+      </div>
+      <div class="flex flex-col items-center justify-center gap-4">
+        <div class="pt-4">
+          <h2>Jogadores adicionados:</h2>
+        </div>
+        <div class="">
+          <ul class="grid grid-cols-3 gap-6 p-3" id="jogadores-list"></ul>
+        </div>
+      </div>
+      <div class="p-2 flex pt-4 gap-4">
+        <button class="p-1 rounded-md border-2" onclick="sortearTimes()">
+          Sortear times
+        </button>
+        <button
+          class="p-1 rounded-md border-2"
+          onclick="limparJogadoresETimes()"
+        >
+          Remover todos os jogadores
+        </button>
+        <button
+          class="p-1 rounded-md border-2"
+          onclick="limparJogadoresETimes()"
+        >
+          Limpar times
+        </button>
+      </div>
+      <div class="flex gap-10" id="times"></div>
 
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="fecharModal()">&times;</span>
-        <p>15 é o número máximo de jogadores permitidos.</p>
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="fecharModal()">&times;</span>
+          <p>15 é o número máximo de jogadores permitidos.</p>
+        </div>
       </div>
     </div>
 
     <script src="script.js"></script>
+
+    <!-- TAILWIND -->
+    <script src="https://cdn.tailwindcss.com"></script>
   </body>
 </html>
