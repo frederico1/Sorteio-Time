@@ -15,8 +15,9 @@
   <body>
     <div class="justify-center items-center flex flex-col container min-h-full">
       <div class="pt-7">
-        <h1 class="text-2xl font-bold">Sorteio de Times</h1>
+        <h1 class="text-2xl font-semibold">Sorteio de Times</h1>
       </div>
+
       <div
         class="justify-center items-center flex gap-2 w-full pt-4"
         id="input-container"
@@ -27,7 +28,10 @@
           id="player-input"
           placeholder="Digite o nome do jogador"
         />
+
         <button
+          type="submit"
+          value="Submit"
           class="p-2 w-32 rounded-md border-2 bg-teal-950 text-white"
           onclick="adicionarJogador()"
         >
@@ -36,7 +40,7 @@
       </div>
       <div class="flex flex-col items-center justify-center gap-4">
         <div class="pt-10">
-          <h2>Jogadores adicionados:</h2>
+          <h2 class="text-xl font-semibold">Jogadores adicionados:</h2>
         </div>
         <div class="">
           <ul class="grid grid-cols-3 gap-6 p-3" id="jogadores-list"></ul>
@@ -62,8 +66,10 @@
           Limpar times
         </button>
       </div>
-      <div class="pt-4 p-3 grid grid-cols-3 gap-20" id="times"></div>
-
+      <div
+        class="pt-4 p-3 grid grid-cols-3 gap-20 text-normal"
+        id="times"
+      ></div>
       <div id="modal" class="modal">
         <div class="modal-content">
           <span class="close" onclick="fecharModal()">&times;</span>
@@ -85,5 +91,16 @@
     />
     <!-- import JavaScript -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+      integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

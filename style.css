@@ -3,6 +3,14 @@ body {
   font-family: 'Nunito', sans-serif;
 }
 
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 16px;
+}
 .container {
   max-width: 100%; /* Define a largura máxima do container */
   overflow: hidden; /* Esconde o conteúdo que extrapolar a largura máxima */
