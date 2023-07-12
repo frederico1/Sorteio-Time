@@ -120,11 +120,17 @@ function removerJogador(jogadorItem) {
   exibirJogadores()
   salvarJogadores()
 }
+// Verificar se o dispositivo é um celular ou tablet
+function isMobileDevice() {
+  return (
+    typeof window.orientation !== 'undefined' ||
+    navigator.userAgent.indexOf('IEMobile') !== -1
+  )
+}
 
 // Adicionar jogador
 function adicionarJogador(event) {
-  if (event.key === 'Enter' || event.keyCode === 13) {
-    // Verifica se a tecla pressionada é "Enter"
+  if (isMobileDevice() && (event.key === 'Enter' || event.keyCode === 13)) {
     var jogadorInput = document.getElementById('player-input')
     var jogador = jogadorInput.value.trim()
 
@@ -141,7 +147,9 @@ function adicionarJogador(event) {
   }
 }
 
-// Evento de pressionar tecla
-document
-  .getElementById('player-input')
-  .addEventListener('keypress', adicionarJogador)
+// Verificar se o dispositivo é um celular ou tablet antes de adicionar o evento de pressionar tecla
+if (isMobileDevice()) {
+  document
+    .getElementById('player-input')
+    .addEventListener('keypress', adicionarJogador)
+}
