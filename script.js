@@ -120,3 +120,28 @@ function removerJogador(jogadorItem) {
   exibirJogadores()
   salvarJogadores()
 }
+
+// Adicionar jogador
+function adicionarJogador(event) {
+  if (event.key === 'Enter' || event.keyCode === 13) {
+    // Verifica se a tecla pressionada é "Enter"
+    var jogadorInput = document.getElementById('player-input')
+    var jogador = jogadorInput.value.trim()
+
+    if (jogador !== '') {
+      if (jogadores.length < 15) {
+        jogadores.push(jogador)
+        jogadorInput.value = ''
+        exibirJogadores()
+        salvarJogadores()
+      } else {
+        alert('O número máximo de jogadores é 15.')
+      }
+    }
+  }
+}
+
+// Evento de pressionar tecla
+document
+  .getElementById('player-input')
+  .addEventListener('keypress', adicionarJogador)
