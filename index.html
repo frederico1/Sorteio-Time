@@ -13,7 +13,7 @@
     />
   </head>
   <body>
-    <div class="justify-center items-center flex flex-col container min-h-full">
+    <div class="flex justify-center items-center flex-col mx-auto container">
       <div class="pt-7">
         <h1 class="text-2xl font-semibold">Sorteio de Times</h1>
       </div>
@@ -23,7 +23,7 @@
         id="input-container"
       >
         <input
-          class="p-2 rounded-md ring-2 ring-teal-700 ring-inset"
+          class="p-2 rounded-md ring-2 ring-teal-700 ring-inset focus:outline-none border-b-2"
           type="text"
           id="player-input"
           placeholder="Digite o nome do jogador"
@@ -32,7 +32,7 @@
         <button
           type="submit"
           value="Submit"
-          class="p-2 w-32 rounded-md border-2 bg-teal-950 text-white"
+          class="p-2 w-32 rounded-md border-2 bg-teal-950 border-teal-950 text-white"
           onclick="adicionarJogador()"
         >
           Adicionar
@@ -46,21 +46,21 @@
           <ul class="grid grid-cols-3 gap-6 p-3" id="jogadores-list"></ul>
         </div>
       </div>
-      <div class="pt-4 gap-2">
+      <div class="pt-4 w-80 flex flex-col gap-3">
         <button
-          class="p-2 rounded-md border-2 bg-[#045e17] text-white w-full h-12"
+          class="p-2 rounded-md border-2 border-[#045e17] text-[#045e17] w-full h-12 font-bold"
           onclick="sortearTimes()"
         >
           Sortear times
         </button>
         <button
-          class="rounded-md border-2 bg-[#a51b0b] text-white w-full p-2 h-12"
+          class="rounded-md border-2 border-[#a51b0b] text-[#a51b0b] w-full p-2 h-12 font-bold"
           onclick="limparJogadoresETimes()"
         >
           Remover todos os jogadores
         </button>
         <button
-          class="p-1 rounded-md border-2 bg-gray-700 text-white w-full h-12"
+          class="p-1 rounded-md border-2 border-gray-700 text-gray-700 w-full h-12 font-bold"
           onclick="limparJogadoresETimes()"
         >
           Limpar times
