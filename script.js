@@ -16,7 +16,10 @@ function adicionarJogador() {
 
   if (jogador !== '') {
     if (jogadores.length < 15) {
-      jogadores.push(jogador)
+      var jogadorId = Date.now().toString() // Gerar um ID único para o jogador
+      var jogadorObj = { id: jogadorId, nome: jogador } // Criar um objeto jogador com ID e nome
+      jogadores.push(jogadorObj) // Adicionar o objeto jogador à lista
+
       jogadorInput.value = ''
       exibirJogadores()
       salvarJogadores()
@@ -26,34 +29,38 @@ function adicionarJogador() {
   }
 }
 
-// exibir jogadores adicionados
+// Remover jogador individual
+function removerJogador(jogadorId) {
+  jogadores = jogadores.filter(function (jogador) {
+    return jogador.id !== jogadorId
+  })
+
+  exibirJogadores()
+  salvarJogadores()
+}
+
+// Exibir jogadores
 function exibirJogadores() {
   var jogadoresList = document.getElementById('jogadores-list')
   jogadoresList.innerHTML = ''
 
   for (var i = 0; i < jogadores.length; i++) {
     var jogadorItem = document.createElement('li')
-    jogadorItem.textContent = jogadores[i]
+    jogadorItem.textContent = jogadores[i].nome
 
     var removerBotao = document.createElement('button')
     removerBotao.textContent = 'X'
     removerBotao.className = 'remover-button'
-    removerBotao.setAttribute('data-index', i)
+    removerBotao.setAttribute('data-jogador-id', jogadores[i].id) // Atribuir o ID do jogador como atributo
+
     removerBotao.addEventListener('click', function () {
-      var index = parseInt(this.getAttribute('data-index'))
-      removerJogador(index)
+      var jogadorId = this.getAttribute('data-jogador-id')
+      removerJogador(jogadorId)
     })
 
     jogadorItem.appendChild(removerBotao)
     jogadoresList.appendChild(jogadorItem)
   }
-}
-
-// remover jogador individualmente
-function removerJogador(index) {
-  jogadores.splice(index, 1)
-  exibirJogadores()
-  salvarJogadores()
 }
 
 // Remover todos os jogadores e times
@@ -102,7 +109,7 @@ function sortearTimes() {
 
     for (var j = startIndex; j < endIndex; j++) {
       var jogador = document.createElement('p')
-      jogador.textContent = jogadoresSorteados[j]
+      jogador.textContent = jogadoresSorteados[j].nome
       time.appendChild(jogador)
     }
 
@@ -121,12 +128,4 @@ function sortearTimes() {
 // Evento de carga da página
 window.addEventListener('load', function () {
   carregarJogadores()
-})
-
-// Remover jogador individual
-document.addEventListener('click', function (event) {
-  if (event.target.classList.contains('remover-button')) {
-    var index = parseInt(event.target.getAttribute('data-index'))
-    removerJogador(index)
-  }
 })
