@@ -26,7 +26,7 @@ function adicionarJogador() {
   }
 }
 
-// Exibir jogadores
+// exibir jogadores adicionados
 function exibirJogadores() {
   var jogadoresList = document.getElementById('jogadores-list')
   jogadoresList.innerHTML = ''
@@ -49,7 +49,7 @@ function exibirJogadores() {
   }
 }
 
-// Remover jogador individual
+// remover jogador individualmente
 function removerJogador(index) {
   jogadores.splice(index, 1)
   exibirJogadores()
