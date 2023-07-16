@@ -17,13 +17,12 @@
       <div class="pt-7">
         <h1 class="text-2xl font-semibold">Sorteio de Times</h1>
       </div>
-
       <div
         class="jogadores justify-center items-center flex gap-2 w-full pt-4"
         id="input-container"
       >
         <input
-          class="p-2 rounded-md ring-2 ring-teal-700 ring-inset focus:outline-none border-b-2"
+          class="p-2 rounded-md ring-2 ring-teal-700 ring-inset focus:outline-none border-b-2 input-border-animation"
           type="text"
           id="player-input"
           maxlength="8"
@@ -49,19 +48,19 @@
       </div>
       <div class="pt-4 w-80 flex flex-col gap-3">
         <button
-          class="p-2 rounded-md border-2 border-[#045e17] text-[#045e17] w-full h-12 font-bold"
+          class="button-1 p-2 rounded-md border-2 border-[#045e17] text-[#045e17] w-full h-12 font-bold"
           onclick="sortearTimes()"
         >
           Sortear times
         </button>
         <button
-          class="rounded-md border-2 border-[#a51b0b] text-[#a51b0b] w-full p-2 h-12 font-bold"
+          class="button-2 rounded-md border-2 border-[#a51b0b] text-[#a51b0b] w-full h-12 font-bold"
           onclick="limparJogadoresETimes()"
         >
           Remover todos os jogadores
         </button>
         <button
-          class="p-1 rounded-md border-2 border-gray-700 text-gray-700 w-full h-12 font-bold"
+          class="button-3 p-1 rounded-md border-2 border-gray-700 text-gray-700 w-full h-12 font-bold"
           onclick="limparJogadoresETimes()"
         >
           Limpar times

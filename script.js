@@ -1,6 +1,6 @@
 var jogadores = []
 
-// Carregar jogadores do Local Storage, se disponível
+// Carregar jogadores do Local Storage
 function carregarJogadores() {
   var jogadoresSalvos = localStorage.getItem('jogadores')
   if (jogadoresSalvos) {
