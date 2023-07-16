@@ -26,6 +26,7 @@
           class="p-2 rounded-md ring-2 ring-teal-700 ring-inset focus:outline-none border-b-2"
           type="text"
           id="player-input"
+          maxlength="8"
           placeholder="Digite o nome do jogador"
         />
 
@@ -43,7 +44,7 @@
           <h2 class="text-xl font-semibold">Jogadores adicionados:</h2>
         </div>
         <div class="">
-          <ul class="grid grid-cols-3 gap-6 p-3" id="jogadores-list"></ul>
+          <ul class="p-3 grid grid-cols-3 gap-6" id="jogadores-list"></ul>
         </div>
       </div>
       <div class="pt-4 w-80 flex flex-col gap-3">
@@ -66,7 +67,7 @@
           Limpar times
         </button>
       </div>
-      <div class="w-full p-3 pt-4 grid grid-cols-3 gap-20" id="times"></div>
+      <div class="p-3 pt-4 grid grid-cols-3 gap-20" id="times"></div>
       <div id="modal" class="modal">
         <div class="modal-content">
           <span class="close" onclick="fecharModal()">&times;</span>
