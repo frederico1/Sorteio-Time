@@ -1,5 +1,5 @@
 body {
-  overflow-x: hidden; /* Oculta a barra de rolagem horizontal */
+  overflow-x: hidden;
   font-family: 'Nunito', sans-serif;
 }
 
@@ -11,9 +11,10 @@ h3 {
 p {
   font-size: 16px;
 }
+
 .container {
-  max-width: 100%; /* Define a largura máxima do container */
-  overflow: hidden; /* Esconde o conteúdo que extrapolar a largura máxima */
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .modal {
@@ -49,15 +50,36 @@ p {
 }
 
 .close:hover {
-  color: red;
+  color: #a51b0b;
 }
 
 .remover-button {
+  background-color: white;
+  color: black;
+  border: 2px solid #a51b0b;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  margin: 3px;
+}
+
+.bold-title {
+  font-weight: 600;
+}
+
+.jogadores-list li {
+  display: flex;
+  align-items: center;
+}
+
+.jogadores-list li .remover-button {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  font-size: 10px;
+  font-size: 17px;
   margin-left: 5px;
-  margin-right: 5px;
   vertical-align: middle;
 }
