@@ -1,6 +1,7 @@
 var jogadores = []
+var times = []
 
-// Carregar jogadores do Local Storage
+// Carregar jogadores do Local Storage, se disponível
 function carregarJogadores() {
   var jogadoresSalvos = localStorage.getItem('jogadores')
   if (jogadoresSalvos) {
@@ -16,10 +17,7 @@ function adicionarJogador() {
 
   if (jogador !== '') {
     if (jogadores.length < 15) {
-      var jogadorId = Date.now().toString() // Gerar um ID único para o jogador
-      var jogadorObj = { id: jogadorId, nome: jogador } // Criar um objeto jogador com ID e nome
-      jogadores.push(jogadorObj) // Adicionar o objeto jogador à lista
-
+      jogadores.push(jogador)
       jogadorInput.value = ''
       exibirJogadores()
       salvarJogadores()
@@ -29,16 +27,6 @@ function adicionarJogador() {
   }
 }
 
-// Remover jogador individual
-function removerJogador(jogadorId) {
-  jogadores = jogadores.filter(function (jogador) {
-    return jogador.id !== jogadorId
-  })
-
-  exibirJogadores()
-  salvarJogadores()
-}
-
 // Exibir jogadores
 function exibirJogadores() {
   var jogadoresList = document.getElementById('jogadores-list')
@@ -46,16 +34,15 @@ function exibirJogadores() {
 
   for (var i = 0; i < jogadores.length; i++) {
     var jogadorItem = document.createElement('li')
-    jogadorItem.textContent = jogadores[i].nome
+    jogadorItem.textContent = jogadores[i]
 
     var removerBotao = document.createElement('button')
     removerBotao.textContent = 'X'
     removerBotao.className = 'remover-button'
-    removerBotao.setAttribute('data-jogador-id', jogadores[i].id) // Atribuir o ID do jogador como atributo
-
+    removerBotao.dataset.index = i
     removerBotao.addEventListener('click', function () {
-      var jogadorId = this.getAttribute('data-jogador-id')
-      removerJogador(jogadorId)
+      var index = parseInt(this.dataset.index)
+      removerJogador(index)
     })
 
     jogadorItem.appendChild(removerBotao)
@@ -63,18 +50,40 @@ function exibirJogadores() {
   }
 }
 
+// Remover jogador individual
+function removerJogador(index) {
+  jogadores.splice(index, 1)
+  exibirJogadores()
+  salvarJogadores()
+}
+
 // Remover todos os jogadores e times
 function limparJogadoresETimes() {
   jogadores = []
   exibirJogadores()
-  var timesDiv = document.getElementById('times')
-  timesDiv.innerHTML = ''
+  times = []
+  exibirTimes()
   salvarJogadores()
+  salvarTimes()
 }
 
 // Salvar jogadores no Local Storage
 function salvarJogadores() {
   localStorage.setItem('jogadores', JSON.stringify(jogadores))
+}
+
+// Carregar times do Local Storage, se disponível
+function carregarTimes() {
+  var timesSalvos = localStorage.getItem('times')
+  if (timesSalvos) {
+    times = JSON.parse(timesSalvos)
+    exibirTimes()
+  }
+}
+
+// Salvar times no Local Storage
+function salvarTimes() {
+  localStorage.setItem('times', JSON.stringify(times))
 }
 
 // Sortear times
@@ -91,41 +100,64 @@ function sortearTimes() {
     return 0.5 - Math.random()
   })
 
-  var timesDiv = document.getElementById('times')
-  timesDiv.innerHTML = '' // Limpar os times anteriores
-
+  times = []
   var numTimes = Math.min(3, Math.ceil(jogadoresSorteados.length / 5))
 
   for (var i = 0; i < numTimes; i++) {
-    var time = document.createElement('div')
-    time.className = 'time'
+    var startIndex = i * 5
+    var endIndex = Math.min(startIndex + 5, jogadoresSorteados.length)
+    var time = jogadoresSorteados.slice(startIndex, endIndex)
+    times.push(time)
+  }
+
+  exibirTimes()
+  salvarTimes()
+}
+
+// Exibir times
+function exibirTimes() {
+  var timesDiv = document.getElementById('times')
+  timesDiv.innerHTML = ''
+
+  for (var i = 0; i < times.length; i++) {
+    var time = times[i]
+
+    var timeDiv = document.createElement('div')
+    timeDiv.className = 'time'
 
     var tituloTime = document.createElement('h3')
     tituloTime.textContent = 'Time ' + (i + 1)
-    time.appendChild(tituloTime)
+    timeDiv.appendChild(tituloTime)
 
-    var startIndex = i * 5
-    var endIndex = Math.min(startIndex + 5, jogadoresSorteados.length)
-
-    for (var j = startIndex; j < endIndex; j++) {
+    for (var j = 0; j < time.length; j++) {
       var jogador = document.createElement('p')
-      jogador.textContent = jogadoresSorteados[j].nome
-      time.appendChild(jogador)
+      jogador.textContent = time[j]
+      timeDiv.appendChild(jogador)
     }
 
-    timesDiv.appendChild(time)
+    timesDiv.appendChild(timeDiv)
   }
-
-  // Aplicar formatação ao título dos três primeiros times
-  var titulosTimes = document.querySelectorAll(
-    '#times .time:nth-child(-n+3) h3'
-  )
-  titulosTimes.forEach(function (tituloTime) {
-    tituloTime.style.fontWeight = '600'
-  })
 }
 
 // Evento de carga da página
 window.addEventListener('load', function () {
   carregarJogadores()
+  carregarTimes()
+})
+
+// Remover jogador individual
+function removerJogador(event) {
+  var jogadorItem = event.target.parentNode
+  var index = Array.from(jogadorItem.parentNode.children).indexOf(jogadorItem)
+  jogadores.splice(index, 1)
+  exibirJogadores()
+  salvarJogadores()
+}
+
+// Evento de clique nos botões de remoção (X)
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('remover-button')) {
+    event.stopPropagation() // Impede a propagação do evento de clique para evitar a remoção múltipla
+    removerJogador(event)
+  }
 })
