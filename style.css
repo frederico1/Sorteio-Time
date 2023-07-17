@@ -87,7 +87,7 @@ span {
 }
 
 /* button adicionar */
-.buttonSortear {
+.buttonAdicionar {
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
@@ -102,13 +102,13 @@ span {
   box-shadow: 0 2px 5px #001c30;
 }
 
-.buttonSortear:hover {
+.buttonAdicionar:hover {
   background: #fff;
   box-shadow: 0px 2px 10px 1px #001c30;
   color: #000;
 }
 
-.buttonSortear:after {
+.buttonAdicionar:after {
   content: '';
   background: #001c30;
   display: block;
@@ -121,14 +121,14 @@ span {
   transition: all 0.8s;
 }
 
-.buttonSortear:active:after {
+.buttonAdicionar:active:after {
   padding: 0;
   margin: 0;
   opacity: 1;
   transition: 0s;
 }
 
-.buttonSortear:focus {
+.buttonAdicionar:focus {
   outline: 0;
 }
 
@@ -272,6 +272,52 @@ span {
 }
 
 .button-3:focus {
+  outline: 0;
+}
+
+/* BUTTON compartilhar */
+.buttonShare {
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 8px;
+  letter-spacing: 4px;
+  position: relative;
+  border: none;
+
+  text-align: center;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  box-shadow: 0 2px 5px #001c30;
+}
+
+.buttonShare:hover {
+  background: #fff;
+  box-shadow: 0px 2px 10px 1px #001c30;
+  color: #000;
+}
+
+.buttonShare:after {
+  content: '';
+  background: #001c30;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.buttonShare:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+.buttonShare:focus {
   outline: 0;
 }
 

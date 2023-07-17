@@ -15,14 +15,21 @@ function adicionarJogador() {
   var jogadorInput = document.getElementById('player-input')
   var jogador = jogadorInput.value.trim()
 
+  // Expressão regular para validar o nome do jogador
+  var nomeRegex = /^[a-zA-ZÀ-ÿ\s]+$/
+
   if (jogador !== '') {
-    if (jogadores.length < 15) {
-      jogadores.push(jogador)
-      jogadorInput.value = ''
-      exibirJogadores()
-      salvarJogadores()
+    if (nomeRegex.test(jogador)) {
+      if (jogadores.length < 15) {
+        jogadores.push(jogador)
+        jogadorInput.value = ''
+        exibirJogadores()
+        salvarJogadores()
+      } else {
+        alert('O número máximo de jogadores é 15.')
+      }
     } else {
-      alert('O número máximo de jogadores é 15.')
+      alert('Não adicionar números e caracteres especiais ao nome do jogador.')
     }
   }
 }
