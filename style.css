@@ -1,6 +1,8 @@
 body {
   overflow-x: hidden;
   font-family: 'Nunito', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h3 {
@@ -84,11 +86,125 @@ p {
   vertical-align: middle;
 }
 
+/* Sorteio de time H1 */
+
+.btn-shine {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 12px 48px;
+  color: #fff;
+  background: linear-gradient(to right, #4d4d4d 0, #fff 10%, #4d4d4d 20%);
+  background-position: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+  animation-fill-mode: forwards;
+  -webkit-text-size-adjust: none;
+  font-weight: 600;
+  font-size: 21px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+@-moz-keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 180px;
+  }
+}
+@-webkit-keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 180px;
+  }
+}
+@-o-keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 180px;
+  }
+}
+@keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 180px;
+  }
+}
+
+/* button adicionar */
+.buttonSortear {
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 4px;
+  position: relative;
+  border: none;
+
+  text-align: center;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  box-shadow: 0 2px 5px #001c30;
+}
+
+.buttonSortear:hover {
+  background: #fff;
+  box-shadow: 0px 2px 10px 1px #001c30;
+  color: #000;
+}
+
+.buttonSortear:after {
+  content: '';
+  background: #001c30;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.buttonSortear:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+.buttonSortear:focus {
+  outline: 0;
+}
+
+/* button sortear times */
+
 .button-1 {
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 11px;
   letter-spacing: 4px;
   position: relative;
   border: none;
@@ -102,7 +218,7 @@ p {
 
 .button-1:hover {
   background: #fff;
-  box-shadow: 0px 2px 10px 5px #045e17;
+  box-shadow: 0px 2px 10px 1px #045e17;
   color: #000;
 }
 
@@ -136,7 +252,7 @@ p {
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 11px;
   letter-spacing: 4px;
   position: relative;
   border: none;
@@ -150,7 +266,7 @@ p {
 
 .button-2:hover {
   background: #fff;
-  box-shadow: 0px 2px 10px 5px #a51b0b;
+  box-shadow: 0px 2px 10px 1px #a51b0b;
   color: #000;
 }
 
@@ -184,7 +300,7 @@ p {
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 11px;
   letter-spacing: 4px;
   position: relative;
   border: none;
@@ -198,7 +314,7 @@ p {
 
 .button-3:hover {
   background: #fff;
-  box-shadow: 0px 2px 10px 5px gray;
+  box-shadow: 0px 2px 10px 1px gray;
   color: #000;
 }
 
