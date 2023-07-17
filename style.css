@@ -14,6 +14,10 @@ p {
   font-size: 16px;
 }
 
+span {
+  font-size: 10px;
+}
+
 .container {
   max-width: 100%;
   overflow: hidden;
@@ -86,72 +90,6 @@ p {
   vertical-align: middle;
 }
 
-/* Sorteio de time H1 */
-
-.btn-shine {
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 12px 48px;
-  color: #fff;
-  background: linear-gradient(to right, #4d4d4d 0, #fff 10%, #4d4d4d 20%);
-  background-position: 0;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 3s infinite linear;
-  animation-fill-mode: forwards;
-  -webkit-text-size-adjust: none;
-  font-weight: 600;
-  font-size: 21px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-@-moz-keyframes shine {
-  0% {
-    background-position: 0;
-  }
-  60% {
-    background-position: 180px;
-  }
-  100% {
-    background-position: 180px;
-  }
-}
-@-webkit-keyframes shine {
-  0% {
-    background-position: 0;
-  }
-  60% {
-    background-position: 180px;
-  }
-  100% {
-    background-position: 180px;
-  }
-}
-@-o-keyframes shine {
-  0% {
-    background-position: 0;
-  }
-  60% {
-    background-position: 180px;
-  }
-  100% {
-    background-position: 180px;
-  }
-}
-@keyframes shine {
-  0% {
-    background-position: 0;
-  }
-  60% {
-    background-position: 180px;
-  }
-  100% {
-    background-position: 180px;
-  }
-}
-
 /* button adicionar */
 .buttonSortear {
   text-align: center;
@@ -212,19 +150,19 @@ p {
   text-align: center;
   transition-duration: 0.4s;
   overflow: hidden;
-  box-shadow: 0 2px 5px #045e17;
+  box-shadow: 0 2px 5px #012e0b;
   border-radius: 4px;
 }
 
 .button-1:hover {
   background: #fff;
-  box-shadow: 0px 2px 10px 1px #045e17;
+  box-shadow: 0px 2px 10px 1px #012e0b;
   color: #000;
 }
 
 .button-1:after {
   content: '';
-  background: #045e17;
+  background: #012e0b;
   display: block;
   position: absolute;
   padding-top: 300%;
@@ -256,23 +194,22 @@ p {
   letter-spacing: 4px;
   position: relative;
   border: none;
-
   text-align: center;
   transition-duration: 0.4s;
   overflow: hidden;
-  box-shadow: 0 2px 5px #a51b0b;
+  box-shadow: 0 2px 5px #6e1207;
   border-radius: 4px;
 }
 
 .button-2:hover {
   background: #fff;
-  box-shadow: 0px 2px 10px 1px #a51b0b;
+  box-shadow: 0px 2px 10px 1px #6e1207;
   color: #000;
 }
 
 .button-2:after {
   content: '';
-  background: #a51b0b;
+  background: #6e1207;
   display: block;
   position: absolute;
   padding-top: 300%;
@@ -308,19 +245,19 @@ p {
   text-align: center;
   transition-duration: 0.4s;
   overflow: hidden;
-  box-shadow: 0 2px 5px gray;
+  box-shadow: 0 2px 5px #383838e8;
   border-radius: 4px;
 }
 
 .button-3:hover {
   background: #fff;
-  box-shadow: 0px 2px 10px 1px gray;
+  box-shadow: 0px 2px 10px 1px #383838;
   color: #000;
 }
 
 .button-3:after {
   content: '';
-  background: gray;
+  background: #383838;
   display: block;
   position: absolute;
   padding-top: 300%;
@@ -340,4 +277,20 @@ p {
 
 .button-3:focus {
   outline: 0;
+}
+
+/* FOOTER */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  background-color: #001c30;
+  padding: 10px;
+}
+
+.text-center {
+  text-align: center;
 }
