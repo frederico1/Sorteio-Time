@@ -161,3 +161,41 @@ document.addEventListener('click', function (event) {
     removerJogador(event)
   }
 })
+
+// COMPARTILHAR TIMES
+document
+  .getElementById('compartilhar-button')
+  .addEventListener('click', function () {
+    var timesDiv = document.getElementById('times')
+    var timesText = ''
+
+    // Concatene o texto dos times sorteados
+    for (var i = 0; i < timesDiv.children.length; i++) {
+      var time = timesDiv.children[i]
+      var tituloTime = time.querySelector('h3').textContent
+      var jogadores = Array.from(time.querySelectorAll('p')).map(function (
+        jogador
+      ) {
+        return jogador.textContent
+      })
+
+      timesText += tituloTime + ': ' + jogadores.join(', ') + '\n'
+    }
+
+    // Compartilhe o texto usando a API do navegador
+    if (navigator.share) {
+      navigator
+        .share({
+          title: 'Times Sorteados',
+          text: timesText
+        })
+        .then(function () {
+          console.log('Times compartilhados com sucesso.')
+        })
+        .catch(function (error) {
+          console.error('Erro ao compartilhar os times:', error)
+        })
+    } else {
+      console.log('API de compartilhamento não suportada pelo navegador.')
+    }
+  })
