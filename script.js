@@ -206,3 +206,58 @@ document
       console.log('API de compartilhamento não suportada pelo navegador.')
     }
   })
+
+// Sortear confronto inicial
+function sortearConfronto() {
+  var numTimes = Math.min(3, Math.ceil(jogadoresSorteados.length / 5))
+  var indiceConfronto = Math.floor(Math.random() * numTimes)
+  return indiceConfronto
+}
+
+// Sortear times
+function sortearTimes() {
+  if (jogadores.length === 0) {
+    alert('Por favor, insira pelo menos um jogador antes de sortear os times.')
+    return
+  }
+
+  var jogadoresSorteados = jogadores.slice(0) // Faz uma cópia do array de jogadores
+
+  // Embaralhar a lista de jogadores
+  jogadoresSorteados.sort(function () {
+    return 0.5 - Math.random()
+  })
+
+  var timesDiv = document.getElementById('times')
+  timesDiv.innerHTML = '' // Limpar os times anteriores
+
+  var numTimes = Math.min(3, Math.ceil(jogadoresSorteados.length / 5))
+
+  for (var i = 0; i < numTimes; i++) {
+    var time = document.createElement('div')
+    time.className = 'time'
+
+    var tituloTime = document.createElement('h3')
+    tituloTime.textContent = 'Time ' + (i + 1)
+    time.appendChild(tituloTime)
+
+    var startIndex = i * 5
+    var endIndex = Math.min(startIndex + 5, jogadoresSorteados.length)
+
+    for (var j = startIndex; j < endIndex; j++) {
+      var jogador = document.createElement('p')
+      jogador.textContent = jogadoresSorteados[j]
+      time.appendChild(jogador)
+    }
+
+    timesDiv.appendChild(time)
+  }
+
+  // Aplicar formatação ao título dos três primeiros times
+  var titulosTimes = document.querySelectorAll(
+    '#times .time:nth-child(-n+3) h3'
+  )
+  titulosTimes.forEach(function (tituloTime) {
+    tituloTime.style.fontWeight = '600'
+  })
+}
