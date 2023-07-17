@@ -19,11 +19,6 @@ span {
   font-size: 10px;
 }
 
-.container {
-  max-width: 100%;
-  overflow: hidden;
-}
-
 .modal {
   display: none;
   position: fixed;
